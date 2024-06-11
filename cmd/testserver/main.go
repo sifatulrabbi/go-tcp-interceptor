@@ -10,6 +10,7 @@ func main() {
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/*", func(w http.ResponseWriter, r *http.Request) {
+		log.Printf("%s: %s\n", r.Method, r.URL.Path)
 		w.WriteHeader(http.StatusOK)
 		w.Header().Set("Content-Type", "application/json")
 		res := map[string]string{
